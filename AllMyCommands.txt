@@ -1,0 +1,175 @@
+user@DESKTOP-3FA9N9I MINGW64 ~ (master)
+$ git init
+Reinitialized existing Git repository in C:/Users/user/.git/
+
+user@DESKTOP-3FA9N9I MINGW64 ~ (master)
+$ mkdir sprintzero
+
+user@DESKTOP-3FA9N9I MINGW64 ~ (master)
+$ cd sprintzero
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ git init
+Initialized empty Git repository in C:/Users/user/sprintzero/.git/
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        1.1.txt
+        3.1.txt
+        5.1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ git add .
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   1.1.txt
+        new file:   3.1.txt
+        new file:   5.1.txt
+
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ git commit -m" i just added three files"
+[master (root-commit) 9efdd98]  i just added three files
+ 3 files changed, 10 insertions(+)
+ create mode 100644 1.1.txt
+ create mode 100644 3.1.txt
+ create mode 100644 5.1.txt
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ git rm 3.1.txt
+rm '3.1.txt'
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    3.1.txt
+
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ ^C
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$
+$ git commit -m"i just deleted the file 3.1"
+[master cd6f936] i just deleted the file 3.1
+ 1 file changed, 5 deletions(-)
+ delete mode 100644 3.1.txt
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$
+$ git log
+commit cd6f936b83a328672f8ea574a604e57533c1d7e1 (HEAD -> master)
+Author: AytenHeshamSalem <36372923+AytenHeshamSalem@users.noreply.github.com>
+Date:   Mon Feb 12 19:29:16 2018 +0200
+
+    i just deleted the file 3.1
+
+commit 9efdd98e143d11fc2b3e9b20e7c11772b56206a7
+Author: AytenHeshamSalem <36372923+AytenHeshamSalem@users.noreply.github.com>
+Date:   Mon Feb 12 19:20:09 2018 +0200
+
+     i just added three files
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ git revert  cd6f936b83a328672f8ea574a604e57533c1d7e1
+
+Revert " i just deleted the file 3.1"
+This reverts commit cd6f936b83a328672f8ea574a604e57533c1d7e1.
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Changes to be committed:
+new file: 3.1.txt
+
+user@DESKTOP-3FA9N9I MINGW64 ~ (master)
+$  cd sprintzero
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ git init
+Reinitialized existing Git repository in C:/Users/user/sprintzero/.git/
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   3.1.txt
+
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ git commit -m"i just reverted the file 3.1.txt"
+[master bbd3269] i just reverted the file 3.1.txt
+ 1 file changed, 5 insertions(+)
+ create mode 100644 3.1.txt
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ touch README.md
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ git branch ReadMe
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ git checkout ReadMe
+Switched to branch 'ReadMe'
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (ReadMe)
+$ git add README.md
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (ReadMe)
+$ git status
+On branch ReadMe
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   README.md
+
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (ReadMe)
+$ git commit -m"i just added the readmefile"
+[ReadMe 3f7565e] i just added the readmefile
+ 1 file changed, 4 insertions(+)
+ create mode 100644 README.md
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (ReadMe)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ git merge Readme
+Updating bbd3269..3f7565e
+Fast-forward
+ README.md | 4 ++++
+ 1 file changed, 4 insertions(+)
+ create mode 100644 README.md
+
+
+user@DESKTOP-3FA9N9I MINGW64 ~/sprintzero (master)
+$ git commit -m"i just merged the master and the readme"
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
